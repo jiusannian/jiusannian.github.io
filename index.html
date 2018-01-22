@@ -17,7 +17,7 @@
   </head>
   <body id="app">
     <section class="">
-
+      <img :src="imgLink" alt="">
     </section>
     
     <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -25,8 +25,17 @@
     <script type="text/javascript" src="js/global.js"></script>
     <script type="text/javascript" src="js/vue.js"></script>
     <script type="text/javascript">
-       var num = parseInt(10*Math.random());
-       alert(num);
+      new vue({
+        el: "#app",
+        data: {
+            imgLink: '',
+        },
+        created: function() {
+            var _self = this;
+            var num = parseInt(10*Math.random());
+            _self.imgLink = num + '.jpg';
+        }
+      })
     </script>
   </body>
 </html>
