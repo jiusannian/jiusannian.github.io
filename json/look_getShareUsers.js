@@ -1,0 +1,32 @@
+﻿{
+    "error_code": 0,
+    "msg":"查询成功",
+    "data": [
+                {
+                    "type":"A",
+                    "userList":[
+                        {
+                            "uid":"1",
+                            "uname":"A用户名"
+                        },
+                        {
+                            "uid":"2",
+                            "uname":"A用户名"
+                        }
+                    ]
+                },
+                {
+                    "type":"B",
+                    "userList":[
+                        {
+                            "uid":"3",
+                            "uname":"B用户名"
+                        },
+                        {
+                            "uid":"4",
+                            "uname":"B用户名"
+                        }
+                    ]
+                }
+    ]
+  }
