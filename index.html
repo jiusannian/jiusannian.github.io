@@ -5,37 +5,78 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no">
     <meta name="format-detection" content="telephone=no, email=no">
-    <title>百家姓</title>
+    <title>醉里寻</title>
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/swiper.min.css">
     <style type="text/css">
-      html,body{ background-color: #f0f0f0;}
+      html{ height: 100%;}
+      body{ min-height: 100%;
+    background-color: #f4f4f4;
+    background: url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;}
     </style>
   </head>
   <body>
-    <section class="" id="app">
-      <img :src="imgLink" alt="" class="w100">
-    </section>
-    
+    <div id="app" class="family-name" v-cloak>
+      <section v-if="showName===0">
+        <div class="imgBox">
+          <img class="logo" src="images/logo.png" alt="">
+          <div @click="alcoholTest()">
+            <img class="test" src="images/test.gif" alt="">
+            <span class="db font24">酒量测试</span>
+          </div>
+        </div>
+        <!-- <img :src="imgLink" alt="" class="w100"> -->
+        <div class="introText">
+          千里之内，或许有一个TA<br>
+          与你拥有着同样的姓氏<br>
+          在此时，与你同醉，与你共寻
+        </div>
+        <!-- <img class="startBtn" src="images/button_2.jpg" alt="" @click="startBtn()"> -->
+        <span class="reInputBtn" alt="" @click="startBtn()">缘起</span>
+      </section>
+      <section v-if="showName===1">
+        <div class="originText">
+          <span class="db bold font32">{{nameText}}姓起源：</span>{{originText}}
+        </div>
+
+        <div class="distanceText">
+          此时，在 <span class="colorNum">{{rand.distanceNum}}</span> km的范围内<br>
+          有 <span class="colorNum">{{rand.peopleNum}}</span> 位{{nameText}}姓的<span :style="{color:TA==='他' ? '#3469b8' : '#cd5297'}">{{TA}}</span>与{{nameText}}姓的您<br>
+          一同享用着醉里寻<br>
+          是否希望与其联系？<br>
+        </div>
+        <div class="reInputBox">
+          <span class="reInputBtn" alt="" @click="reInputBtn()">重新输入</span>
+          <span class="reInputBtn contactBtn" alt="" @click="contact()">好的，联系TA</span>
+        </div>
+      </section>
+      <section v-if="showName===2">
+        <div class="noneNameText">
+          您输入的姓氏我们暂未收录<br>
+          敬请期待后续更新<br>
+        </div>
+        <span class="reInputBtn" alt="" @click="reInputBtn()">重新输入</span>
+      </section>
+      <section v-if="showName===3">
+        <div class="noneNameText">
+          玩命赶工中......<br>
+          敬请期待后续更新<br>
+        </div>
+        <span class="reInputBtn" alt="" @click="reInputBtn()">重新输入</span>
+      </section>
+    </div>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/swiper.min.js"></script>
-    <script type="text/javascript" src="js/global.js"></script>
+    
     <script type="text/javascript" src="js/vue.js"></script>
-    <script type="text/javascript">
-      new Vue({
-        el: "#app",
-        data: {
-            imgLink: '',
-        },
-        created: function() {
-            var _self = this;
-            var num = parseInt(10*Math.random());
-            _self.imgLink = 'images/surname/' + num + '.jpg';
-        }
-      })
-    </script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/alert.js"></script>
+    <script type="text/javascript" src="js/family-name.js"></script>
   </body>
 </html>

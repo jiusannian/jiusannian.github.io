@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <title>醉里寻</title>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <style type="text/css">
+      html{ height: 100%;}
+      body{ min-height: 100%;
+    background-color: #f4f4f4;
+    background: url(images/测试背景.jpg);
+    background-repeat-y: no-repeat;
+    background-position-x: center;
+    background-size: cover;}
+    </style>
+  </head>
+  <body>
+    <div id="app" class="alcoholTest" v-cloak>
+      <section v-if="showName===0">
+        <div class="testTip">
+          <img class="db w100" src="images/testTip.png" alt="">
+          <img class="db w100" src="images/test.gif" alt="">
+        </div>
+        <span class="startBtn" alt="" @click="startBtn()">开始测试</span>
+      </section>
+      <section v-if="showName===1">
+        <div class="questionBox">
+          <div class="questionTip">
+            <span class="font28 bold">完成如下计算题：（{{count+1}}/3）</span>
+            <span class="countDown">{{second}} s</span>
+          </div>
+          <div class="questionBoard" :class="{'font32':item.question.length>10}" v-for="(item,index) in questionList" v-if="index===count">
+            {{item.question}}<span class="colore4">?</span>
+            <ul class="answerBox">
+              <li @click="selected(answer.isRight,item.answers,index)" v-for="(answer,index) in item.answers" :class="[answer.isRight?'right':'wrong',{'mask':isMask[index]}]">{{answer.answer}}</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section v-if="showName===2">
+        <div class="resultImg" v-if="score == 0">
+          <img class="w50" src="images/已醉.png">
+          <span class="db bold font32 line15 padTB40">哎呀，头昏眼花，你已然醉了<br>不信再测一次</span>
+        </div>
+        <div class="resultImg" v-if="score == 1">
+          <img class="w50" src="images/将醉.png">
+          <span class="db bold font32 line15 padTB40">错了两道题，离醉不远了<br>不信再测一次</span>
+        </div>
+        <div class="resultImg" v-if="score == 2">
+          <img class="w50" src="images/微醺.png">
+          <span class="db bold font32 line15 padTB40">错了一道题，还没醉，赶紧再来一杯<br>不信再测一次</span>
+        </div>
+        <div class="resultImg" v-if="score == 3">
+          <img class="w50" src="images/酒神.png">
+          <span class="db bold font32 line15 padTB40">太能喝了！<br>真不愧是酒神！</span>
+        </div>
+        <span class="reInputBtn" alt="" @click="reInputBtn()">再测一次</span>
+        <span class="backBtn" alt="" @click="backBtn()">返回首页</span>
+      </section>
+    </div>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+    
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/alert.js"></script>
+    <script type="text/javascript" src="js/alcoholTest.js"></script>
+  </body>
+</html>

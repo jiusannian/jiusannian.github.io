@@ -1554,3 +1554,186 @@
 .bottomBtn .regBtn:active {
   background-color: #c8af6d;
 }
+/* 姓氏 */
+.family-name {
+  text-align: center;
+}
+.family-name .imgBox {
+  position: relative;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -webkit-align-items: center;
+  align-items: center;
+  padding: 0.8rem 4% 0;
+}
+.family-name .imgBox .logo {
+  width: 2rem;
+  height: 2.9rem;
+}
+.family-name .imgBox .test {
+  width: 4.1rem;
+  height: 4.5rem;
+}
+.family-name .introText {
+  padding-top: 20%;
+  font-size: 0.8rem;
+  line-height: 2.5;
+}
+.family-name .originText {
+  padding: 15% 6.4% 0;
+  font-size: 0.7rem;
+  text-align: left;
+  line-height: 1.5;
+  height: 8rem;
+}
+.family-name .distanceText {
+  padding-top: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  font-weight: bold;
+}
+.family-name .distanceText .colorNum {
+  color: #ff9000;
+}
+.family-name .noneNameText {
+  padding: 9rem 0 2rem;
+  font-size: 0.8rem;
+  line-height: 2;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.family-name .startBtn {
+  position: absolute;
+  bottom: 5.5rem;
+  width: 7.5rem;
+}
+.family-name .reInputBtn {
+  display: block;
+  font-size: 0.8rem;
+  margin: 18% auto 0;
+  color: #fff;
+  width: 7.5rem;
+  height: 2.2rem;
+  line-height: 2.2rem;
+  text-align: center;
+  background-color: #cd5297;
+  border-radius: 0.25rem;
+}
+.family-name .reInputBtn.contactBtn {
+  background-color: #3469b8;
+}
+.family-name .reInputBox {
+  position: relative;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  padding-bottom: 0.8rem;
+}
+/* 酒精测试 */
+.alcoholTest {
+  text-align: center;
+  padding-bottom: 3rem;
+}
+.alcoholTest .testTip {
+  padding: 7rem 0 0;
+  font-size: 0.8rem;
+  width: 12rem;
+  margin: 0 auto;
+}
+.alcoholTest .startBtn {
+  display: block;
+  margin: 0 auto;
+  width: 9.225rem;
+  height: 2.925rem;
+  background: url(../images/start.png) no-repeat;
+  background-size: cover;
+  font-size: 0.8rem;
+  color: #fff;
+  line-height: 2.925rem;
+  text-align: center;
+}
+.alcoholTest .questionBox {
+  padding: 0 10%;
+}
+.alcoholTest .questionBox .questionTip {
+  position: relative;
+  padding: 7rem 0 1rem;
+  font-size: 0.8rem;
+  margin: 0 auto;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.alcoholTest .questionBox .countDown {
+  display: block;
+  width: 3rem;
+  padding: 0.5rem;
+  text-align: center;
+  background-color: #c5c5c5;
+  border-radius: 0.5rem;
+  color: #fff;
+}
+.alcoholTest .questionBox .questionBoard {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.8rem;
+}
+.alcoholTest .questionBox .answerBox li {
+  display: block;
+  margin: 0.5rem auto;
+  width: 9.225rem;
+  height: 2.925rem;
+  font-size: 0.8rem;
+  color: #333;
+  line-height: 2.925rem;
+  text-align: center;
+}
+.alcoholTest .questionBox .answerBox li.wrong {
+  background: url(../images/start.png) no-repeat;
+  background-size: cover;
+}
+.alcoholTest .questionBox .answerBox li.right {
+  background: url(../images/right.png) no-repeat;
+  background-size: cover;
+}
+.alcoholTest .questionBox .answerBox li.mask {
+  background: url(../images/select.png) no-repeat;
+  background-size: cover;
+}
+.alcoholTest .resultImg {
+  padding: 7rem 0 0;
+  font-size: 0.8rem;
+  margin: 0 auto;
+}
+.alcoholTest .reInputBtn {
+  display: block;
+  margin: 0 auto;
+  width: 9.225rem;
+  height: 2.925rem;
+  background: url(../images/start.png) no-repeat;
+  background-size: cover;
+  font-size: 0.8rem;
+  color: #fff;
+  line-height: 2.925rem;
+  text-align: center;
+}
+.alcoholTest .backBtn {
+  display: block;
+  margin: 0 auto;
+  width: 9.225rem;
+  height: 2.925rem;
+  background: url(../images/right.png) no-repeat;
+  background-size: cover;
+  font-size: 0.8rem;
+  color: #fff;
+  line-height: 2.925rem;
+  text-align: center;
+}

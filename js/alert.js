@@ -6,13 +6,14 @@
 // alert
 var flag = 0;
 window.alert = function (options) {
-    var text, description, fillInput = false, textArea = false, close = true, sureText, cancelText, callback, noCallback, kind, closetime , closeEvent;
+    var text, description, fillInput = false, sexInput = false, inputplaceholder, textArea = false, close = true, sureText, cancelText, callback, noCallback, kind, closetime , closeEvent;
     if (typeof (options) == 'object') {
-        text = options.text, description = options.description, sureText = options.onOk, cancelText = options.onCancel, callback = options.okEvent, noCallback = options.noEvent, kind = options.kind, closetime = options.closetime, closeCallback = options.closeEvent ;
+        text = options.text, description = options.description, sureText = options.onOk, cancelText = options.onCancel, callback = options.okEvent, noCallback = options.noEvent, kind = options.kind, closetime = options.closetime, closeCallback = options.closeEvent, inputplaceholder = options.placeholder;
     } else {
         text = options;
     }
     fillInput = (typeof(options.fillInput) === "undefined" ? false : options.fillInput);
+    sexInput = (typeof(options.sexInput) === "undefined" ? false : options.sexInput);
     textArea = (typeof(options.textArea) === "undefined" ? false : options.textArea);
     close = (typeof(options.close) === "undefined" ? true : options.close);
     if (cancelText == "" || cancelText == "undefined" || cancelText == null) {
@@ -44,13 +45,16 @@ window.alert = function (options) {
     pop += "</div>\n";
     p = text ? "<p class='pop_text'>" + text + "</p>\n" : "";
     span = description ? "<span class='pop_desc'>" + description +"</span>\n" : "";
-    fillInput =  fillInput ? "<input class='fillInput' />\n" : "";
+    fillInput =  fillInput ? "<div class='clearfix padLR40'><input class='fillInput' />\n" : "<div>";
+    sexInput =  sexInput ? "<div class='clearfix sexBox'><label class='radioInput fl on'>男</label><label class='radioInput fr'>女</label></div></div>\n" : "</div>";
     textArea = textArea ? "<textarea class='textArea'></textarea>\n" : "";
     close = close ? "<i class='close j_closePop'></i>\n" : "";
+    
+    fillInput = inputplaceholder ? "<div class='clearfix padLR40'><input class='fillInput' placeholder='" + inputplaceholder + "' />\n" : fillInput;
 
     //两个按钮
     if (kind == 2) {
-        popbox.innerHTML = close + p + span + fillInput + textArea + pop;
+        popbox.innerHTML = close + p + span + fillInput + sexInput + textArea + pop;
         document.body.appendChild(popbox);
         document.body.appendChild(popbg);
         
@@ -112,9 +116,10 @@ window.alert = function (options) {
         if (flag == 1) {
             document.body.appendChild(alertFram);
             setTimeout(function () {
-                document.getElementById("okbtn").click();
+                //document.getElementById("okbtn").click(); //解决其他alert被触发，报错
+                doHide();
             }, 2000);
-            this.doOk = function () {
+            this.doHide = function () {
                 document.body.removeChild(alertFram);
                 if (callback != undefined && typeof (callback) == 'function') {
                     callback();
